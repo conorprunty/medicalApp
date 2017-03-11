@@ -1,0 +1,101 @@
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePatients (20170311122159)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "patients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "Name" varchar, "Date_of_Birth" varchar, "Address" varchar, "Phone_Number" decimal, "Infection" varchar, "Injury" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170311122159"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-03-11 12:22:05 UTC], ["updated_at", 2017-03-11 12:22:05 UTC]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/patients/new" for ::1 at 2017-03-11 12:22:16 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PatientsController#new as HTML
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (17.6ms)
+  Rendered patients/new.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 523ms (Views: 502.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/patients/new" for ::1 at 2017-03-11 12:22:43 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PatientsController#new as HTML
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (21.1ms)
+  Rendered patients/new.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 240ms (Views: 213.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/patients" for ::1 at 2017-03-11 12:22:47 +0000
+Processing by PatientsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XOxJTEOuvjWqBXbM9JHPAhUYu6pi+jRAAXxk9m2EDfqWjohaaOVBfZRqn9olauU58SZK432zSoB+Z1pVHjbkNQ==", "patient"=>{"Name"=>"", "Date_of_Birth"=>"", "Address"=>"", "Phone_Number"=>"jj", "Infection"=>"", "Injury"=>""}, "commit"=>"Create Patient"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "patients" ("Name", "Date_of_Birth", "Address", "Phone_Number", "Infection", "Injury", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["Name", ""], ["Date_of_Birth", ""], ["Address", ""], ["Phone_Number", 0.0], ["Infection", ""], ["Injury", ""], ["created_at", 2017-03-11 12:22:47 UTC], ["updated_at", 2017-03-11 12:22:47 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/patients/1
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/patients/1" for ::1 at 2017-03-11 12:22:47 +0000
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering patients/show.html.erb within layouts/application
+  Rendered patients/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 23ms (Views: 18.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/patients/1/edit" for ::1 at 2017-03-11 12:22:51 +0000
+Processing by PatientsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering patients/edit.html.erb within layouts/application
+  Rendered patients/_form.html.erb (7.5ms)
+  Rendered patients/edit.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 34ms (Views: 30.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/patients" for ::1 at 2017-03-11 12:22:52 +0000
+Processing by PatientsController#index as HTML
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  Rendered patients/index.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 48ms (Views: 45.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/patients/1" for ::1 at 2017-03-11 12:22:55 +0000
+Processing by PatientsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6/iwX3/ce9bMP6C8OQ/k13KEv4Tkhvqs1pfXpsSIEr8hmnFJVJeEnvJQSaro9M7slrpOzfvPhGypjOkFtzr7cA==", "id"=>"1"}
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "patients" WHERE "patients"."id" = ?[0m  [["id", 1]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/patients
+Completed 302 Found in 8ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/patients" for ::1 at 2017-03-11 12:22:55 +0000
+Processing by PatientsController#index as HTML
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  Rendered patients/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/patients/new" for ::1 at 2017-03-11 12:24:06 +0000
+Processing by PatientsController#new as HTML
+Filter chain halted as #<Proc:0x007fa313190790@/Users/conorprunty/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.2/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/patients/new" for ::1 at 2017-03-11 12:24:24 +0000
+Processing by PatientsController#new as HTML
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (4.6ms)
+  Rendered patients/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 48ms (Views: 33.1ms | ActiveRecord: 0.9ms)
+
+
