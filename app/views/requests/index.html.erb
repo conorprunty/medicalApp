@@ -1,0 +1,17 @@
+<h1>Requests in <%= @patient.Name %></h1>
+<table>
+<tr>
+<th>Request details</th>
+</tr>
+    <% for request in @requests %>
+<tr>
+    <td><%= request.details %></td>
+    <td><%= link_to 'Show', patient_request_path(@patient, request) %></td>
+    <td><%= link_to 'Edit', edit_patient_request_path(@patient, request) %></td>
+    <td><%= link_to 'Destroy', patient_request_path(@patient, request), :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>
+<% end %>
+</table>
+<br />
+<%= link_to 'New request', new_patient_request_path(@patient) %>
+<%= link_to 'Back to Patient', @patient %>

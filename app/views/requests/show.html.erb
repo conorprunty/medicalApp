@@ -1,0 +1,5 @@
+<h1>Request in <%= @patient.Name %></h1> <p>
+<b>Request details:</b>
+<%= @request.details %>
+</p>
+<%= link_to 'Edit', edit_patient_request_path(@patient, @request) %> | <%= link_to 'Back', patient_requests_path(@patient) %>

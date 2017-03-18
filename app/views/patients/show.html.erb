@@ -30,5 +30,15 @@
   <%= @patient.Injury %>
 </p>
 
+<h2>Requests</h2>
+<% @patient.requests.each do |request| %>
+<p>
+<b>Request details:</b>
+    <%= request.details %>
+</p>
+<% end %>
+
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>
+<%= link_to 'Show Requests', patient_requests_path(@patient) %>
+
