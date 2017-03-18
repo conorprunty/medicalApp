@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+    root to: "patients#index"
+  devise_for :users
   get 'requests/index'
 
   get 'requests/show'
@@ -12,4 +14,6 @@ Rails.application.routes.draw do
         resources :requests
     end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    
+    
 end
