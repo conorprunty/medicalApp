@@ -6,6 +6,8 @@
     <% for request in @requests %>
 <tr>
     <td><%= request.details %></td>
+    <!-- provide links to show, edit and destroy sections -->
+    <!-- Note: can be added to/amended as necessary -->
     <td><%= link_to 'Show', patient_request_path(@patient, request) %></td>
     <td><%= link_to 'Edit', edit_patient_request_path(@patient, request) %></td>
     <td><%= link_to 'Destroy', patient_request_path(@patient, request), :confirm => 'Are you sure?', :method => :delete %></td>
