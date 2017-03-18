@@ -1,3 +1,5 @@
+require 'my_logger'
+
 class PatientsController < ApplicationController
     #password required to add patient
     http_basic_authenticate_with name: "test", password: "test", except: [:index, :show]
@@ -29,6 +31,8 @@ class PatientsController < ApplicationController
   # POST /patients.json
   def create
     @patient = Patient.new(patient_params)
+      logger = MyLogger.send :new
+      logger.logInformation("A new patient has been added - "+@patient.Name)
     respond_to do |format|
       if @patient.save
         format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
