@@ -1,4 +1,5 @@
 require 'my_logger'
+require 'date'
 
 class PatientsController < ApplicationController
     #password required to add patient
@@ -38,7 +39,7 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.new(patient_params)
       logger = MyLogger.send :new
-      logger.logInformation("A new patient has been added - "+@patient.Name)
+      logger.logInformation("A new patient has been added - "+@patient.Name+" at "+Time.now.to_s)
     respond_to do |format|
       if @patient.save
         format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
