@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :profiles
     root to: "patients#index"
   devise_for :users
   get 'requests/index'
@@ -15,5 +16,6 @@ Rails.application.routes.draw do
     end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     
+    get '/signedinuserprofile' => 'profiles#signedinuserprofile'
     
 end
