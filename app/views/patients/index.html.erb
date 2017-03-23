@@ -2,6 +2,12 @@
 
 <h1>Patients</h1>
 
+<!-- http://www.korenlc.com/creating-a-simple-search-in-rails-4/ -->
+<%= form_tag(patients_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Names" %>
+    <%= submit_tag "Search" %>
+<% end %>
+
 <table>
   <thead>
     <tr>
