@@ -1,2 +1,5 @@
 A new patient has been added - test new at 2017-03-23 20:00:14 +0000
 A new patient has been added - Mary Jane at 2017-03-23 20:45:06 +0000
+A new patient has been added - Conor at 2017-03-27 21:32:27 +0100
+A new patient has been added - Kate at 2017-03-27 21:57:03 +0100
+A new patient has been added - Billy Bob at 2017-03-27 22:23:41 +0100
