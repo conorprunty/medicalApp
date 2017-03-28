@@ -11,37 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :Name %>
-    <%= f.text_field :Name %>
+    <%= f.text_field :Name, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :Date_of_Birth %>
-    <%= f.text_field :Date_of_Birth %>
+    <%= f.text_field :Date_of_Birth, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :Address %>
-    <%= f.text_field :Address %>
+    <%= f.text_field :Address, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :Phone_Number %>
-    <%= f.text_field :Phone_Number %>
+    <%= f.text_field :Phone_Number, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :Infection %>
-    <%= f.text_field :Infection %>
+    <%= f.text_field :Infection, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :Injury %>
-    <%= f.text_field :Injury %>
+    <%= f.text_field :Injury, class:"form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary"%>
   </div>
 <% end %>

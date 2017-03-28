@@ -38,7 +38,7 @@
 </p>
 <% end %>
 
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
-<%= link_to 'Show Requests', patient_requests_path(@patient) %>
+<%= link_to 'Edit', edit_patient_path(@patient), class: "btn btn-link" %> |
+<%= link_to 'Back', patients_path, class: "btn btn-link" %>
+<%= link_to 'Show Requests', patient_requests_path(@patient), class: "btn btn-link" %>
 

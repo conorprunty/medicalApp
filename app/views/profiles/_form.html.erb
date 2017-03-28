@@ -11,27 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="col-xs-7">
     <%= f.label :firstname %>
-    <%= f.text_field :firstname %>
+    <%= f.text_field :firstname, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="col-xs-7">
     <%= f.label :lastname %>
-    <%= f.text_field :lastname %>
+    <%= f.text_field :lastname, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="col-xs-7">
     <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="col-xs-7">
     <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+    <%= f.text_field :user_id, class:"form-control" %>
   </div>
 
   <div class="actions">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
     <%= f.submit %>
   </div>
 <% end %>

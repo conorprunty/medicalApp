@@ -1,19 +1,20 @@
 <h1>Requests in <%= @patient.Name %></h1>
-<table>
+<%= link_to 'New request', new_patient_request_path(@patient), class: "btn btn-default" %>
+<%= link_to 'Back to Patient', @patient, class: "btn btn-default" %>
+<br>
+<br>
+<table class="table table-hover table-striped table-bordered table-responsive">
 <tr>
-<th>Request details</th>
 </tr>
     <% for request in @requests %>
 <tr>
     <td><%= request.details %></td>
     <!-- provide links to show, edit and destroy sections -->
     <!-- Note: can be added to/amended as necessary -->
-    <td><%= link_to 'Show', patient_request_path(@patient, request) %></td>
-    <td><%= link_to 'Edit', edit_patient_request_path(@patient, request) %></td>
-    <td><%= link_to 'Destroy', patient_request_path(@patient, request), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', patient_request_path(@patient, request), class: "btn btn-default" %></td>
+    <td><%= link_to 'Edit', edit_patient_request_path(@patient, request), class: "btn btn-default" %></td>
+    <td><%= link_to 'Destroy', patient_request_path(@patient, request), :confirm => 'Are you sure?', :method => :delete, class: "btn btn-default" %></td>
 </tr>
 <% end %>
 </table>
 <br />
-<%= link_to 'New request', new_patient_request_path(@patient) %>
-<%= link_to 'Back to Patient', @patient %>
