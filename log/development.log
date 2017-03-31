@@ -11578,3 +11578,184 @@ Processing by PatientsController#index as HTML
 Completed 200 OK in 54ms (Views: 50.4ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/" for ::1 at 2017-03-31 21:41:36 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /Users/conorprunty/Desktop/medicalApp/app/controllers/application_controller.rb:3)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:PatientsController> at /Users/conorprunty/Desktop/medicalApp/app/controllers/patients_controller.rb:7)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:PatientsController> at /Users/conorprunty/Desktop/medicalApp/app/controllers/patients_controller.rb:8)
+Processing by PatientsController#index as HTML
+Completed 401 Unauthorized in 19ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-31 21:41:36 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (39.8ms)
+  Rendered devise/menu/_registration_items.html.erb (1.1ms)
+  Rendered devise/menu/_login_items.html.erb (0.6ms)
+Completed 200 OK in 526ms (Views: 488.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2017-03-31 21:41:39 +0100
+Processing by PatientsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-31 21:41:39 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.3ms)
+  Rendered devise/menu/_registration_items.html.erb (0.5ms)
+  Rendered devise/menu/_login_items.html.erb (0.5ms)
+Completed 200 OK in 34ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/profiles" for ::1 at 2017-03-31 21:41:40 +0100
+Processing by ProfilesController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-31 21:41:40 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.6ms)
+  Rendered devise/menu/_registration_items.html.erb (0.5ms)
+  Rendered devise/menu/_login_items.html.erb (0.6ms)
+Completed 200 OK in 30ms (Views: 29.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-03-31 21:41:49 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x/p9XEskFXIZHygy0H5yYvg9PJXU5Ht7PQtxOyOV1jmEOWhZNa++N+9VB8ziM2AACWqAMiMRi0vPvRcJWi7Vcw==", "user"=>{"email"=>"admin@email.ie", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@email.ie"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-03-31 20:41:49 UTC], ["last_sign_in_at", 2017-03-30 17:56:09 UTC], ["current_sign_in_ip", "::1"], ["sign_in_count", 15], ["updated_at", 2017-03-31 20:41:49 UTC], ["id", 7]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/signedinuserprofile
+Completed 302 Found in 165ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/signedinuserprofile" for ::1 at 2017-03-31 21:41:49 +0100
+Processing by ProfilesController#signedinuserprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 7], ["LIMIT", 1]]
+Redirected to http://localhost:3000/profiles/2
+Completed 302 Found in 18ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/profiles/2" for ::1 at 2017-03-31 21:41:50 +0100
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (11.7ms)
+  Rendered devise/menu/_registration_items.html.erb (0.7ms)
+  Rendered devise/menu/_login_items.html.erb (0.5ms)
+Completed 200 OK in 36ms (Views: 32.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-03-31 21:41:51 +0100
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" ORDER BY created_at DESC[0m
+  Rendered patients/index.html.erb within layouts/application (10.9ms)
+  Rendered devise/menu/_registration_items.html.erb (0.4ms)
+  Rendered devise/menu/_login_items.html.erb (0.4ms)
+Completed 200 OK in 53ms (Views: 32.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/patients?utf8=%E2%9C%93&search=bill&commit=Search" for ::1 at 2017-03-31 21:41:59 +0100
+Processing by PatientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"bill", "commit"=>"Search"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE (name LIKE '%bill%') ORDER BY created_at DESC[0m
+  Rendered patients/index.html.erb within layouts/application (13.7ms)
+  Rendered devise/menu/_registration_items.html.erb (0.7ms)
+  Rendered devise/menu/_login_items.html.erb (0.6ms)
+Completed 200 OK in 44ms (Views: 40.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/patients?utf8=%E2%9C%93&search=bill&commit=Search" for ::1 at 2017-03-31 21:52:03 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /Users/conorprunty/Desktop/medicalApp/app/controllers/application_controller.rb:3)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:PatientsController> at /Users/conorprunty/Desktop/medicalApp/app/controllers/patients_controller.rb:7)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:PatientsController> at /Users/conorprunty/Desktop/medicalApp/app/controllers/patients_controller.rb:8)
+Processing by PatientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"bill", "commit"=>"Search"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE (name LIKE '%bill%') ORDER BY created_at DESC[0m
+  Rendered patients/index.html.erb within layouts/application (10.5ms)
+  Rendered devise/menu/_registration_items.html.erb (0.7ms)
+  Rendered devise/menu/_login_items.html.erb (0.8ms)
+Completed 200 OK in 279ms (Views: 243.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/patients?utf8=%E2%9C%93&search=&commit=Search" for ::1 at 2017-03-31 21:52:06 +0100
+Processing by PatientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"", "commit"=>"Search"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE (name LIKE '%%') ORDER BY created_at DESC[0m
+  Rendered patients/index.html.erb within layouts/application (4.4ms)
+  Rendered devise/menu/_registration_items.html.erb (0.4ms)
+  Rendered devise/menu/_login_items.html.erb (0.5ms)
+Completed 200 OK in 29ms (Views: 25.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/patients?utf8=%E2%9C%93&search=kate&commit=Search" for ::1 at 2017-03-31 21:52:09 +0100
+Processing by PatientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"kate", "commit"=>"Search"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE (name LIKE '%kate%') ORDER BY created_at DESC[0m
+  Rendered patients/index.html.erb within layouts/application (2.3ms)
+  Rendered devise/menu/_registration_items.html.erb (0.4ms)
+  Rendered devise/menu/_login_items.html.erb (0.8ms)
+Completed 200 OK in 28ms (Views: 23.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/patients?utf8=%E2%9C%93&search=at&commit=Search" for ::1 at 2017-03-31 21:52:12 +0100
+Processing by PatientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"at", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE (name LIKE '%at%') ORDER BY created_at DESC[0m
+  Rendered patients/index.html.erb within layouts/application (2.7ms)
+  Rendered devise/menu/_registration_items.html.erb (0.5ms)
+  Rendered devise/menu/_login_items.html.erb (0.7ms)
+Completed 200 OK in 28ms (Views: 25.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/patients?utf8=%E2%9C%93&search=patient&commit=Search" for ::1 at 2017-03-31 21:52:16 +0100
+Processing by PatientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"patient", "commit"=>"Search"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE (name LIKE '%patient%') ORDER BY created_at DESC[0m
+  Rendered patients/index.html.erb within layouts/application (2.8ms)
+  Rendered devise/menu/_registration_items.html.erb (0.4ms)
+  Rendered devise/menu/_login_items.html.erb (0.4ms)
+Completed 200 OK in 28ms (Views: 25.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/patients?utf8=%E2%9C%93&search=&commit=Search" for ::1 at 2017-03-31 21:52:19 +0100
+Processing by PatientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"", "commit"=>"Search"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE (name LIKE '%%') ORDER BY created_at DESC[0m
+  Rendered patients/index.html.erb within layouts/application (4.5ms)
+  Rendered devise/menu/_registration_items.html.erb (0.4ms)
+  Rendered devise/menu/_login_items.html.erb (0.4ms)
+Completed 200 OK in 28ms (Views: 25.0ms | ActiveRecord: 0.5ms)
+
+
