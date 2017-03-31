@@ -21,8 +21,10 @@
         <td><%= profile.address %></td>
         <td><%= profile.user %></td>
         <td><%= link_to 'Show', profile, class: "btn btn-default" %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile), class: "btn btn-default" %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
+        <% if current_user.admin? %>
+            <td><%= link_to 'Edit', edit_profile_path(profile), class: "btn btn-default" %></td>
+            <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

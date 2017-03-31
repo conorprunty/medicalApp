@@ -12,8 +12,10 @@
     <!-- provide links to show, edit and destroy sections -->
     <!-- Note: can be added to/amended as necessary -->
     <td><%= link_to 'Show', patient_request_path(@patient, request), class: "btn btn-default" %></td>
-    <td><%= link_to 'Edit', edit_patient_request_path(@patient, request), class: "btn btn-default" %></td>
-    <td><%= link_to 'Destroy', patient_request_path(@patient, request), :confirm => 'Are you sure?', :method => :delete, class: "btn btn-default" %></td>
+    <% if current_user.admin? %>
+        <td><%= link_to 'Edit', edit_patient_request_path(@patient, request), class: "btn btn-default" %></td>
+        <td><%= link_to 'Destroy', patient_request_path(@patient, request), :confirm => 'Are you sure?', :method => :delete, class: "btn btn-default" %></td>
+    <% end %>
 </tr>
 <% end %>
 </table>
