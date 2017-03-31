@@ -7,6 +7,6 @@ class Patient < ApplicationRecord
 #    end
     
     def self.search(search_for)
-        Patient.where("name LIKE ?", "%#{search_for}%")
+        Patient.where(" \"patients\".\"Name\" LIKE ?", "%#{search_for}%")
     end
 end
