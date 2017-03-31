@@ -3,10 +3,19 @@
 <h1>Patients</h1>
 
 <!-- http://www.korenlc.com/creating-a-simple-search-in-rails-4/ -->
+
+<!--
 <%= form_tag(patients_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Names" %>
     <%= submit_tag "Search", class: "btn btn-default"    %>
 <% end %>   
+-->
+
+
+<%= form_tag(patients_path, :method => "get") do %>
+    <%= text_field_tag :search, nil, :placeholder => "Search Names" %>
+    <%= submit_tag "Search", class: "btn btn-default"    %>
+<% end %>  
 <br>
 <% if user_signed_in? %>
 <%= link_to 'New Patient', new_patient_path, class: "btn btn-default" %>

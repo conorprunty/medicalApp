@@ -13,13 +13,16 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   # http://www.korenlc.com/creating-a-simple-search-in-rails-4/
-  def index
+def index
     @patients = Patient.all
     if params[:search]
-        @patients = Patient.search(params[:search]).order("created_at DESC")
-  else
-        @patients = Patient.all.order('created_at DESC')
-  end
+        #@patients = Patient.search(params[:search]).order("created_at DESC")
+        @patients = Patient.search(params[:search])
+        @patients = @patients.order("name ASC")
+    else
+        #@patients = Patient.all.order('created_at DESC')
+        @patients = @patients.order("name ASC")
+    end
   end
 
   # GET /patients/1
