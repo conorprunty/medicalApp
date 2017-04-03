@@ -3,4 +3,7 @@
 <%= @request.details %>
 </p>
 <!-- provding links to edit and to back -->
-<%= link_to 'Edit', edit_patient_request_path(@patient, @request), class: "btn btn-default" %>  <%= link_to 'Back', patient_requests_path(@patient), class: "btn btn-default" %>
+<% if current_user.admin? %>
+    <%= link_to 'Edit', edit_patient_request_path(@patient, @request), class: "btn btn-default" %>  
+<% end %>
+<%= link_to 'Back', patient_requests_path(@patient), class: "btn btn-default" %>
