@@ -17,7 +17,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @profile.user %>
+  <%= @profile.user_id %>
 </p>
 <% if current_user.admin? %>
     <%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-default" %> 
